@@ -10,19 +10,32 @@ import com.itextpdf.text.pdf.*;
 
 public class Main {
     //path name WITH the cover letter template file (i.e: /Users/JohnDoe/Desktop/cover-letters/cover-letter-template.docx)
-    private static final String COVER_LETTER_TEMPLATE__PATH_NAME = "";
-
+    private static final String COVER_LETTER_TEMPLATE__PATH_NAME ="D:\\Program Files (x86)\\school\\personal stuff\\cover-letters\\";
+    private static Scanner input = new Scanner(System.in);
+    private static FileInputStream docInputStream;
     public static void main(String[] args) {
+        Goback:
+        System.out.println("Is this an IT or SWE job?");
+        String career = input.nextLine();
     try{
         //loads doc file
-        FileInputStream docInputStream = new FileInputStream(COVER_LETTER_TEMPLATE__PATH_NAME);
+        if(career.equals("SWE")){
+            docInputStream = new FileInputStream(COVER_LETTER_TEMPLATE__PATH_NAME+"cover-letter-template__SWE.docx");
+        }else if(career.equals("IT")){
+            docInputStream = new FileInputStream(COVER_LETTER_TEMPLATE__PATH_NAME+"cover-letter-template__IT.docx");
+        }else{
+            System.out.println("Error");
+            return;
+        }
+
         XWPFDocument doc = new XWPFDocument(docInputStream);
+
 
         //retrieve texts from doc file
         XWPFWordExtractor extract = new XWPFWordExtractor(doc);
         String docContents = extract.getText();
 
-        Scanner input = new Scanner(System.in);
+
         System.out.print("Company name: ");
         String company_name = input.nextLine();
 
@@ -43,7 +56,7 @@ public class Main {
                 replace("company_objective", company_objective));
 
         //create a pdf file
-        FileOutputStream pdfOutputStream = new FileOutputStream(""+company_name+"__cover-letter.pdf");
+        FileOutputStream pdfOutputStream = new FileOutputStream("D:\\Program Files (x86)\\school\\personal stuff\\cover-letters\\"+company_name+"__cover-letter.pdf");
         Document pdfDoc = new Document();
         PdfWriter writer = PdfWriter.getInstance(pdfDoc, pdfOutputStream);
         pdfDoc.open();
