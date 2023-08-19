@@ -10,15 +10,6 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Downloads/itextpdf-5.5.9.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$MODULE_DIR$/lib/commons-codec-1.15.jar!/" />
           <root url="jar://$MODULE_DIR$/lib/commons-collections4-4.4.jar!/" />
           <root url="jar://$MODULE_DIR$/lib/commons-compress-1.21.jar!/" />
@@ -43,6 +34,15 @@
         <JAVADOC>
           <root url="jar://$MODULE_DIR$/lib/poi-javadoc-5.2.3.jar!/" />
         </JAVADOC>
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/lib/itextpdf-5.5.9.jar!/" />
+        </CLASSES>
+        <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
