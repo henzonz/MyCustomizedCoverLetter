@@ -18,7 +18,7 @@ public class Main {
         System.out.println("Is this an IT or SWE job?");
         String career = input.nextLine();
     try{
-        //loads doc file
+        //asks user if its an IT or SWE role; loads doc file depending on career
         if(career.equals("SWE")){
             docInputStream = new FileInputStream(COVER_LETTER_TEMPLATE__PATH_NAME+"cover-letter-template__SWE.docx");
         }else if(career.equals("IT")){
