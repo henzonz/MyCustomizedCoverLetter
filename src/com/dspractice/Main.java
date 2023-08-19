@@ -46,14 +46,10 @@ public class Main {
         String company_objective = input.nextLine();
 
         //replace keywords
-        String newKeywords = company_objective.equals("") ? (newKeywords = docContents.
+        String newKeywords = docContents.
                 replace("company_name", company_name).
                 replace("position_name", position_name).
-                replace("company_objective", "")) :
-                (newKeywords = docContents.
-                replace("company_name", company_name).
-                replace("position_name", position_name).
-                replace("company_objective", company_objective));
+                replace("company_objective", "");
 
         //create a pdf file
         FileOutputStream pdfOutputStream = new FileOutputStream("D:\\Program Files (x86)\\school\\personal stuff\\cover-letters\\"+company_name+"__cover-letter.pdf");
