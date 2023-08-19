@@ -9,8 +9,8 @@ import com.itextpdf.text.*;
 import com.itextpdf.text.pdf.*;
 
 public class Main {
-    //path name WITH the cover letter template file
-    private static final String COVER_LETTER_TEMPLATE__PATH_NAME = "/Users/henzonzambrano/Desktop/cover-letters/cover-letter-template.docx";
+    //path name WITH the cover letter template file (i.e: /Users/JohnDoe/Desktop/cover-letters/cover-letter-template.docx)
+    private static final String COVER_LETTER_TEMPLATE__PATH_NAME = "";
 
     public static void main(String[] args) {
     try{
@@ -43,7 +43,7 @@ public class Main {
                 replace("company_objective", company_objective));
 
         //create a pdf file
-        FileOutputStream pdfOutputStream = new FileOutputStream("/Users/henzonzambrano/Desktop/cover-letters/"+company_name+"__cover-letter.pdf");
+        FileOutputStream pdfOutputStream = new FileOutputStream(""+company_name+"__cover-letter.pdf");
         Document pdfDoc = new Document();
         PdfWriter writer = PdfWriter.getInstance(pdfDoc, pdfOutputStream);
         pdfDoc.open();
