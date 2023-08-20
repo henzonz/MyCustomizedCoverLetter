@@ -1,4 +1,4 @@
-package com.dspractice;
+package com;
 
 import java.io.*;
 import java.util.Scanner;
@@ -13,16 +13,18 @@ public class Main {
     private static final String COVER_LETTER_TEMPLATE__PATH_NAME ="D:\\Program Files (x86)\\school\\personal stuff\\cover-letters\\";
     private static Scanner input = new Scanner(System.in);
     private static FileInputStream docInputStream;
+
+
     public static void main(String[] args) {
-        Goback:
+        
         System.out.println("Is this an IT or SWE job?");
         String career = input.nextLine();
     try{
         //asks user if its an IT or SWE role; loads doc file depending on career
         if(career.equals("SWE")){
-            docInputStream = new FileInputStream(COVER_LETTER_TEMPLATE__PATH_NAME+"cover-letter-template__SWE.docx");
+            docInputStream = new FileInputStream(COVER_LETTER_TEMPLATE__PATH_NAME + "cover-letter-template__SWE.docx");
         }else if(career.equals("IT")){
-            docInputStream = new FileInputStream(COVER_LETTER_TEMPLATE__PATH_NAME+"cover-letter-template__IT.docx");
+            docInputStream = new FileInputStream(COVER_LETTER_TEMPLATE__PATH_NAME + "cover-letter-template__IT.docx");
         }else{
             System.out.println("Error");
             return;
@@ -49,10 +51,10 @@ public class Main {
         String newKeywords = docContents.
                 replace("company_name", company_name).
                 replace("position_name", position_name).
-                replace("company_objective", "");
+                replace("company_objective", company_objective);
 
-        //create a pdf file
-        FileOutputStream pdfOutputStream = new FileOutputStream("D:\\Program Files (x86)\\school\\personal stuff\\cover-letters\\"+company_name+"__cover-letter.pdf");
+        //create a pdf file stores it into pathname + company_name + __cover-letter.pdf
+        FileOutputStream pdfOutputStream = new FileOutputStream(COVER_LETTER_TEMPLATE__PATH_NAME + company_name + "__cover-letter.pdf");
         Document pdfDoc = new Document();
         PdfWriter writer = PdfWriter.getInstance(pdfDoc, pdfOutputStream);
         pdfDoc.open();
